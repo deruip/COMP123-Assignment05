@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Imperial = new System.Windows.Forms.RadioButton();
-            this.Metric = new System.Windows.Forms.RadioButton();
+            this.MyWeight = new System.Windows.Forms.Label();
             this.MyHeight = new System.Windows.Forms.Label();
             this.HeightInput = new System.Windows.Forms.TextBox();
-            this.MyWeight = new System.Windows.Forms.Label();
+            this.Metric = new System.Windows.Forms.RadioButton();
+            this.Imperial = new System.Windows.Forms.RadioButton();
             this.WeightInput = new System.Windows.Forms.TextBox();
             this.CalculateButton = new System.Windows.Forms.Button();
             this.Results = new System.Windows.Forms.TextBox();
@@ -71,30 +71,16 @@
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // Imperial
+            // MyWeight
             // 
-            this.Imperial.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Imperial.AutoSize = true;
-            this.Imperial.Location = new System.Drawing.Point(142, 175);
-            this.Imperial.Name = "Imperial";
-            this.Imperial.Size = new System.Drawing.Size(133, 34);
-            this.Imperial.TabIndex = 1;
-            this.Imperial.TabStop = true;
-            this.Imperial.Text = "Imperial";
-            this.Imperial.UseVisualStyleBackColor = true;
-            this.Imperial.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged_1);
-            // 
-            // Metric
-            // 
-            this.Metric.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Metric.AutoSize = true;
-            this.Metric.Location = new System.Drawing.Point(4, 175);
-            this.Metric.Name = "Metric";
-            this.Metric.Size = new System.Drawing.Size(130, 34);
-            this.Metric.TabIndex = 2;
-            this.Metric.TabStop = true;
-            this.Metric.Text = "Metric";
-            this.Metric.UseVisualStyleBackColor = true;
+            this.MyWeight.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MyWeight.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.MyWeight, 2);
+            this.MyWeight.Location = new System.Drawing.Point(46, 86);
+            this.MyWeight.Name = "MyWeight";
+            this.MyWeight.Size = new System.Drawing.Size(186, 36);
+            this.MyWeight.TabIndex = 5;
+            this.MyWeight.Text = "My Weight:";
             // 
             // MyHeight
             // 
@@ -117,16 +103,30 @@
             this.HeightInput.Size = new System.Drawing.Size(160, 45);
             this.HeightInput.TabIndex = 4;
             // 
-            // MyWeight
+            // Metric
             // 
-            this.MyWeight.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.MyWeight.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.MyWeight, 2);
-            this.MyWeight.Location = new System.Drawing.Point(46, 86);
-            this.MyWeight.Name = "MyWeight";
-            this.MyWeight.Size = new System.Drawing.Size(186, 36);
-            this.MyWeight.TabIndex = 5;
-            this.MyWeight.Text = "My Weight:";
+            this.Metric.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Metric.AutoSize = true;
+            this.Metric.Location = new System.Drawing.Point(4, 175);
+            this.Metric.Name = "Metric";
+            this.Metric.Size = new System.Drawing.Size(130, 34);
+            this.Metric.TabIndex = 2;
+            this.Metric.TabStop = true;
+            this.Metric.Text = "Metric";
+            this.Metric.UseVisualStyleBackColor = true;
+            // 
+            // Imperial
+            // 
+            this.Imperial.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Imperial.AutoSize = true;
+            this.Imperial.Location = new System.Drawing.Point(142, 175);
+            this.Imperial.Name = "Imperial";
+            this.Imperial.Size = new System.Drawing.Size(133, 34);
+            this.Imperial.TabIndex = 1;
+            this.Imperial.TabStop = true;
+            this.Imperial.Text = "Imperial";
+            this.Imperial.UseVisualStyleBackColor = true;
+            this.Imperial.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged_1);
             // 
             // WeightInput
             // 
@@ -169,6 +169,8 @@
             this.BMIScaleResults.Name = "BMIScaleResults";
             this.BMIScaleResults.Size = new System.Drawing.Size(272, 85);
             this.BMIScaleResults.TabIndex = 9;
+            this.BMIScaleResults.Text = "e.g. Your BMI is 18.9\r\nBMI is Normal";
+            this.BMIScaleResults.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BMIScaleResults.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // BMICalculator
