@@ -12,7 +12,7 @@ using System.Windows.Forms;
  * Student #: 300932437
  * Date: August 15, 2017
  * Description: BMI Calculator Project
- * Version 0.5 - Added Reset button
+ * Version 0.6 - Added exception handling
  */
 namespace Assignment05
 {
@@ -90,15 +90,22 @@ namespace Assignment05
         /// <param name="e"></param>
         private void CalculateBMIButton_Click(object sender, EventArgs e)
         {
-            if (MetricRadioButton.Checked)
+            try
             {
-                CalculateBMIMetric();
-                EvaluateBMIScale();
+                if (MetricRadioButton.Checked)
+                {
+                    CalculateBMIMetric();
+                    EvaluateBMIScale();
+                }
+                else
+                {
+                    CalculateBMIImperial();
+                    EvaluateBMIScale();
+                }
             }
-            else
+            catch
             {
-                CalculateBMIImperial();
-                EvaluateBMIScale();
+                MessageBox.Show("Please ensure both fields are filled out");
             }
         }
 
