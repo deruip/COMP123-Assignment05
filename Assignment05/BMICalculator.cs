@@ -12,7 +12,7 @@ using System.Windows.Forms;
  * Student #: 300932437
  * Date: August 15, 2017
  * Description: BMI Calculator Project
- * Version 0.3 - Added Calculate functions for both unit systems
+ * Version 0.4 - Added function to output BMI scale results
  */
 namespace Assignment05
 {
@@ -83,10 +83,12 @@ namespace Assignment05
             if (MetricRadioButton.Checked)
             {
                 CalculateBMIMetric();
+                EvaluateBMIScale();
             }
             else
             {
                 CalculateBMIImperial();
+                EvaluateBMIScale();
             }
         }
 
@@ -112,6 +114,30 @@ namespace Assignment05
 
             _bmi = (_weight * 703) / (_height * _height);
             BMIResultsTextBox.Text = Convert.ToString(Math.Round(_bmi, 2));
+        }
+
+        /// <summary>
+        /// Determines which category the resulting BMI is under
+        /// </summary>
+        private void EvaluateBMIScale()
+        {
+            BMIScaleResults.Text = "";
+            if (_bmi < 18.5)
+            {                
+                BMIScaleResults.Text = "Your BMI is Underweight";
+            }
+            else if (_bmi >= 18.5 && _bmi <= 24.9)
+            {
+                BMIScaleResults.Text = "Your BMI is Normal";
+            }
+            else if (_bmi >= 25 && _bmi <= 29.9)
+            {
+                BMIScaleResults.Text = "Your BMI is Overweight";
+            }
+            else if (_bmi >= 30)
+            {
+                BMIScaleResults.Text = "Your BMI is Obese";
+            }
         }
     }
 }
