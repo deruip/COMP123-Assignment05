@@ -12,7 +12,7 @@ using System.Windows.Forms;
  * Student #: 300932437
  * Date: August 15, 2017
  * Description: BMI Calculator Project
- * Version 0.4 - Added function to output BMI scale results
+ * Version 0.5 - Added Reset button
  */
 namespace Assignment05
 {
@@ -32,22 +32,32 @@ namespace Assignment05
             MetricRadioButton.Checked = true;
         }
 
+        /// <summary>
+        /// Checks that the Weight input field only has numeric characters and .'s
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void WeightInput_TextChanged(object sender, EventArgs e)
         {
-            //if (System.Text.RegularExpressions.Regex.IsMatch(WeightInput.Text, "[^0-9]"))
-            //{
-            //    MessageBox.Show("Only numeric data is allowed");
-            //    WeightInput.Clear();
-            //}
+            if (!(System.Text.RegularExpressions.Regex.IsMatch(WeightInput.Text, @"^((\+|\-)?(\d)([0-9])*)?\.?([0-9])*$")) && WeightInput.Text.Length > 0)
+            {
+                MessageBox.Show("Only numeric data is allowed");
+                WeightInput.Clear();
+            }
         }
 
+        /// <summary>
+        /// Checks that the Height input field only has numeric characters and .'s
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HeightInput_TextChanged(object sender, EventArgs e)
         {
-            //if (System.Text.RegularExpressions.Regex.IsMatch(HeightInput.Text, "[^0-9]"))
-            //{
-            //    MessageBox.Show("Only numeric data is allowed");
-            //    HeightInput.Clear();
-            //}
+            if (!(System.Text.RegularExpressions.Regex.IsMatch(HeightInput.Text, @"(^((\+|\-)?(\d)([0-9])*)?\.?([0-9])*$)")) && HeightInput.Text.Length > 0)
+            {
+                MessageBox.Show("Only numeric data is allowed");
+                HeightInput.Clear();
+            }
         }
 
         /// <summary>
@@ -93,6 +103,19 @@ namespace Assignment05
         }
 
         /// <summary>
+        /// Resets the input and result fields to contain nothing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            HeightInput.Text = "";
+            WeightInput.Text = "";
+            BMIResultsTextBox.Text = "";
+            BMIScaleResults.Text = "";
+        }
+
+        /// <summary>
         /// Calculates BMI using Metric formula and outputs result to BMIResultsTextBox
         /// </summary>
         private void CalculateBMIMetric()
@@ -123,7 +146,7 @@ namespace Assignment05
         {
             BMIScaleResults.Text = "";
             if (_bmi < 18.5)
-            {                
+            {
                 BMIScaleResults.Text = "Your BMI is Underweight";
             }
             else if (_bmi >= 18.5 && _bmi <= 24.9)
