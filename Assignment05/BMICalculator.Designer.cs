@@ -145,6 +145,7 @@
             this.CalculateBMIButton.TabIndex = 7;
             this.CalculateBMIButton.Text = "Calculate BMI";
             this.CalculateBMIButton.UseVisualStyleBackColor = true;
+            this.CalculateBMIButton.Click += new System.EventHandler(this.CalculateBMIButton_Click);
             // 
             // BMIResultsTextBox
             // 
@@ -156,7 +157,6 @@
             this.BMIResultsTextBox.Name = "BMIResultsTextBox";
             this.BMIResultsTextBox.Size = new System.Drawing.Size(216, 45);
             this.BMIResultsTextBox.TabIndex = 8;
-            this.BMIResultsTextBox.TextChanged += new System.EventHandler(this.Results_TextChanged);
             // 
             // BMIScaleResults
             // 
